@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Icon, Image } from 'semantic-ui-react';
+import { Card, Icon, Image, Grid } from 'semantic-ui-react';
 
 class FoodCard extends Component {
   constructor(props) {
@@ -18,7 +18,18 @@ class FoodCard extends Component {
           <Card.Meta></Card.Meta>
           <Card.Description></Card.Description>
         </Card.Content>
-        <Card.Content></Card.Content>
+        <Card.Content extra textAlign='right'>
+          <Grid columns='equal' divided>
+            <Grid.Row>
+              <Grid.Column textAlign='center'>
+                <Icon link size='huge' color='red' name='remove' />
+              </Grid.Column>
+              <Grid.Column textAlign='center'>
+                <Icon link size='huge' color='green' name='checkmark'/>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Card.Content>
       </Card>
     );
   }
