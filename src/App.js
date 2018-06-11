@@ -12,7 +12,43 @@ class App extends Component {
       distanceSliderLevel: 0,
       spicynessSliderLevel: 0,
       currentCategory: '',
+      latitude: 0,
+      longitude: 0
     };
+
+    this.fetchYelpData = this.fetchYelpData.bind(this);
+    this.getCurrentLocation = this.getCurrentLocation.bind(this);
+  }
+
+  fetchYelpData() {
+    const yelpURL = `https://api.yelp.com/v3/businesses/search?latitude=${this.state.latitude}&longitude=${this.state.longitude}&radius=500`;
+    const requestBody = {
+      headers: {
+        'Authorization': `Bearer ${process.env.REACT_APP_YELP_API_KEY}`,
+      }
+    };
+    fetch(yelpURL, requestBody)
+      .then(response => {
+        console.log('here');
+        return response.json();
+      })
+      .then(jsonBody => {
+        console.log(jsonBody);
+      });
+  }
+
+  getCurrentLocation() {
+    navigator.geolocation.getCurrentPosition(position => {
+      this.setState({
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude
+      });
+      this.fetchYelpData();
+    });
+  }
+
+  componentDidMount() {
+    this.getCurrentLocation();
   }
 
   render() {
