@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Card, Icon, Image, Grid } from 'semantic-ui-react';
 
 class FoodCard extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       image: '',
     };
@@ -11,8 +11,8 @@ class FoodCard extends Component {
 
   render() {
     return (
-      <Card centered>
-        <Image src="https://cdn.theatlantic.com/static/mt/assets/science/cat_caviar.jpg" />
+      <Card style={{marginTop: '10px'}} centered>
+        <Image src={this.props.imgLink} />
         <Card.Content>
           <Card.Header></Card.Header>
           <Card.Meta></Card.Meta>
@@ -22,10 +22,10 @@ class FoodCard extends Component {
           <Grid columns='equal' divided>
             <Grid.Row>
               <Grid.Column textAlign='center'>
-                <Icon link size='huge' color='red' name='remove' />
+                <Icon link size='huge' color='red' name='remove' onClick={this.props.changeImg} />
               </Grid.Column>
               <Grid.Column textAlign='center'>
-                <Icon link size='huge' color='green' name='checkmark'/>
+                <Icon link size='huge' color='green' name='checkmark' onClick={this.props.changeImg} />
               </Grid.Column>
             </Grid.Row>
           </Grid>
