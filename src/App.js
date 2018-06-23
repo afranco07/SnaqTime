@@ -13,28 +13,44 @@ class App extends Component {
       spicynessSliderLevel: 0,
       currentCategory: '',
       latitude: 0,
-      longitude: 0
+      longitude: 0,
+      currentImage: '',
     };
 
     this.fetchYelpData = this.fetchYelpData.bind(this);
     this.getCurrentLocation = this.getCurrentLocation.bind(this);
+    this.setCardImage = this.setCardImage.bind(this);
   }
 
   fetchYelpData() {
-    const yelpURL = `https://api.yelp.com/v3/businesses/search?latitude=${this.state.latitude}&longitude=${this.state.longitude}&radius=500`;
-    const requestBody = {
+    const yelpURL = 'https://yelpsearch.herokuapp.com/yelp';
+    const data = {
+      method: "POST",
       headers: {
-        'Authorization': `Bearer ${process.env.REACT_APP_YELP_API_KEY}`,
-      }
-    };
-    fetch(yelpURL, requestBody)
-      .then(response => {
-        console.log('here');
-        return response.json();
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        latitude: this.state.latitude,
+        longitude: this.state.longitude,
+        radius: 5000
       })
+    };
+    fetch(yelpURL, data)
+      .then(response => response.json())
       .then(jsonBody => {
-        console.log(jsonBody);
-      });
+        let imgArray = jsonBody.businesses.map(business => {
+          return business.image_url;
+        });
+        this.setState(() => {
+          return {
+            restaurants: imgArray
+          };
+        });
+      })
+      .then(() => {
+        this.setCardImage();
+      })
+      .catch(e => console.log(e))
   }
 
   getCurrentLocation() {
@@ -47,6 +63,16 @@ class App extends Component {
     });
   }
 
+  setCardImage() {
+    let image_url = this.state.restaurants.pop();
+    this.setState(() => {
+      return {
+        restaurants: this.state.restaurants,
+        currentImage: image_url
+      };
+    });
+  }
+
   componentDidMount() {
     this.getCurrentLocation();
   }
@@ -54,7 +80,7 @@ class App extends Component {
   render() {
     return (
       <div>
-      <FoodCard />
+      <FoodCard imgLink={this.state.currentImage} changeImg={this.setCardImage} />
       <Container textAlign='center'>
         <RangeSlider iconName='dollar' />
         <RangeSlider iconName='map pin' />
