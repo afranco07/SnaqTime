@@ -20,6 +20,9 @@ class App extends Component {
     this.fetchYelpData = this.fetchYelpData.bind(this);
     this.getCurrentLocation = this.getCurrentLocation.bind(this);
     this.setCardImage = this.setCardImage.bind(this);
+    this.setDollarAmount = this.setDollarAmount.bind(this);
+    this.setDistanceSlider = this.setDistanceSlider.bind(this);
+    this.setSpicynessSlider = this.setSpicynessSlider.bind(this);
   }
 
   fetchYelpData() {
@@ -73,6 +76,24 @@ class App extends Component {
     });
   }
 
+  setDollarAmount(newAmount) {
+    this.setState(() => {
+      return { moneySliderLevel: newAmount};
+    });
+  }
+
+  setDistanceSlider(newDistance) {
+    this.setState(() => {
+      return { distanceSliderLevel: newDistance };
+    });
+  }
+
+  setSpicynessSlider(newSpicyness) {
+    this.setState(() => {
+      return { spicynessSliderLevel: newSpicyness };
+    });
+  }
+
   componentDidMount() {
     this.getCurrentLocation();
   }
@@ -82,9 +103,9 @@ class App extends Component {
       <div>
       <FoodCard imgLink={this.state.currentImage} changeImg={this.setCardImage} />
       <Container textAlign='center'>
-        <RangeSlider iconName='dollar' />
-        <RangeSlider iconName='map pin' />
-        <RangeSlider iconName='fire' />
+        <RangeSlider iconName='dollar' updateSliderLevel={this.setDollarAmount}/>
+        <RangeSlider iconName='map pin' updateSliderLevel={this.setDistanceSlider}/>
+        <RangeSlider iconName='fire' updateSliderLevel={this.setSpicynessSlider}/>
       </Container>
       </div>
     );
