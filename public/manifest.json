@@ -1,15 +1,75 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Snaq Time",
+  "name": "Snaq Time Random Food",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "hamburger_fav/favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
+    },
+    {
+      "src": "hamburger_fav/a-hamburger-16-292904.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "hamburger_fav/a-hamburger-24-292904.png",
+      "sizes": "24x24",
+      "type": "image/png"
+    },
+    {
+      "src": "hamburger_fav/a-hamburger-32-292904.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "hamburger_fav/a-hamburger-48-292904.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "hamburger_fav/a-hamburger-57-292904.png",
+      "sizes": "52x52",
+      "type": "image/png"
+    },
+    {
+      "src": "hamburger_fav/a-hamburger-64-292904.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "hamburger_fav/a-hamburger-72-292904.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "hamburger_fav/a-hamburger-114-292904.png",
+      "sizes": "114x114",
+      "type": "image/png"
+    },
+    {
+      "src": "hamburger_fav/a-hamburger-120-292904.png",
+      "sizes": "120x120",
+      "type": "image/png"
+    },
+    {
+      "src": "hamburger_fav/a-hamburger-144-292904.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "hamburger_fav/a-hamburger-152-292904.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "hamburger_fav/a-hamburger-512-292904.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "blue",
+  "background_color": "green"
 }
