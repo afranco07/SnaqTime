@@ -101,12 +101,12 @@ class App extends Component {
   render() {
     return (
       <div>
-      <FoodCard imgLink={this.state.currentImage} changeImg={this.setCardImage} />
-      <Container textAlign='center'>
-        <RangeSlider iconName='dollar' updateSliderLevel={this.setDollarAmount}/>
-        <RangeSlider iconName='map pin' updateSliderLevel={this.setDistanceSlider}/>
-        <RangeSlider iconName='fire' updateSliderLevel={this.setSpicynessSlider}/>
-      </Container>
+        <FoodCard imgLink={this.state.currentImage} changeImg={this.setCardImage}/>
+        <Container textAlign='center'>
+          <RangeSlider iconName='dollar' updateSliderLevel={this.setDollarAmount}/>
+          <RangeSlider iconName='map pin' updateSliderLevel={this.setDistanceSlider}/>
+          <RangeSlider iconName='fire' updateSliderLevel={this.setSpicynessSlider}/>
+        </Container>
       </div>
     );
   }

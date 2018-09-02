@@ -5,6 +5,7 @@
   "dependencies": {
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-hammerjs": "^1.0.1",
     "react-scripts": "1.1.4",
     "semantic-ui-react": "^0.80.2"
   },
