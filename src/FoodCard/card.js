@@ -16,7 +16,6 @@ class FoodCard extends Component {
   }
 
   handlePan(event) {
-    console.log('Panned!', event, event.type);
     let newXcoord = event.deltaX;
     let newYcoord = event.deltaY;
     this.setState(() => {
@@ -28,7 +27,6 @@ class FoodCard extends Component {
   }
 
   handlePanStop(event) {
-    this.setState({testLeft: 0, testTop: 0});
     this.setState(() => {
       return {
         leftPosition: 0,
@@ -39,7 +37,13 @@ class FoodCard extends Component {
 
   render() {
     return (
-      <Hammer onPan={this.handlePan} style={{position: 'relative', left: this.state.leftPosition, top: this.state.topPosition }} onPanEnd={this.handlePanStop}>
+      <Hammer 
+        style={{position: 'relative', left: this.state.leftPosition, top: this.state.topPosition }} 
+        onSwipeRight={this.props.changeImg}
+        onSwipeLeft={this.props.changeImg}
+        onPan={this.handlePan} 
+        onPanEnd={this.handlePanStop}
+      >
         <div>
           <Card style={{marginTop: '10px'}} centered raised={true}>
             <Image src={this.props.imgLink} />
