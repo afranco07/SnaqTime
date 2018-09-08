@@ -8,6 +8,7 @@ class App extends Component {
     super(props);
     this.state = {
       restaurants: [],
+      restaurantName: '',
       moneySliderLevel: 0,
       distanceSliderLevel: 0,
       spicynessSliderLevel: 0,
@@ -42,7 +43,10 @@ class App extends Component {
       .then(response => response.json())
       .then(jsonBody => {
         let imgArray = jsonBody.businesses.map(business => {
-          return business.image_url;
+          return {
+            image_url: business.image_url,
+            name: business.name
+          };
         });
         this.setState(() => {
           return {
@@ -67,11 +71,13 @@ class App extends Component {
   }
 
   setCardImage() {
-    let image_url = this.state.restaurants.pop();
+    let restaurant_object = this.state.restaurants.pop();
+    let { image_url, name } = restaurant_object;
     this.setState(() => {
       return {
         restaurants: this.state.restaurants,
-        currentImage: image_url
+        currentImage: image_url,
+        restaurantName: name
       };
     });
   }
@@ -101,7 +107,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <FoodCard imgLink={this.state.currentImage} changeImg={this.setCardImage}/>
+        <FoodCard imgLink={this.state.currentImage} changeImg={this.setCardImage} currentRestaurantName={this.state.restaurantName} />
         <Container textAlign='center'>
           <RangeSlider iconName='dollar' updateSliderLevel={this.setDollarAmount}/>
           <RangeSlider iconName='map pin' updateSliderLevel={this.setDistanceSlider}/>
