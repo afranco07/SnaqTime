@@ -1,4 +1,6 @@
 # Snaq Time
+* [Installation](#installation)
+* [How to Use](#how-to-use-snaq-time)
 
 Access/install the application at: https://snaqtime.herokuapp.com/
 
