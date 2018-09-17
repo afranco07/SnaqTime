@@ -53,7 +53,7 @@ class RangeSlider extends Component {
     return (
       <div>
         <Icon size='large' name={this.props.iconName} />
-        <input style={{marginTop:'10px'}} type='range' min='1' max={this.state.maxSliderValue} defaultValue={this.state.sliderValue} className='slider' step='1' onChange={this.updateSlider} />
+        <input style={{marginTop:'15px'}} type='range' min='1' max={this.state.maxSliderValue} defaultValue={this.state.sliderValue} className='slider' step='1' onChange={this.updateSlider} />
         {this.state.sliderValue}
       </div>
     );

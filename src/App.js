@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FoodCard from './FoodCard/card.js';
 import RangeSlider from './RangeSlider/slider.js';
-import { Container } from 'semantic-ui-react';
+import { Container, Button } from 'semantic-ui-react';
 
 class App extends Component {
   constructor(props) {
@@ -16,6 +16,7 @@ class App extends Component {
       latitude: 0,
       longitude: 0,
       currentImage: '',
+      isLoading: true
     };
 
     this.fetchYelpData = this.fetchYelpData.bind(this);
@@ -27,6 +28,10 @@ class App extends Component {
   }
 
   fetchYelpData() {
+    this.setState(() => {
+      return { isLoading: true };
+    });
+    
     const yelpURL = 'https://yelpsearch.herokuapp.com/yelp';
     const data = {
       method: "POST",
@@ -36,7 +41,7 @@ class App extends Component {
       body: JSON.stringify({
         latitude: this.state.latitude,
         longitude: this.state.longitude,
-        radius: 5000
+        radius: this.state.distanceSliderLevel
       })
     };
     fetch(yelpURL, data)
@@ -77,7 +82,8 @@ class App extends Component {
       return {
         restaurants: this.state.restaurants,
         currentImage: image_url,
-        restaurantName: name
+        restaurantName: name,
+        isLoading: false
       };
     });
   }
@@ -112,6 +118,8 @@ class App extends Component {
           <RangeSlider iconName='dollar' updateSliderLevel={this.setDollarAmount}/>
           <RangeSlider iconName='map pin' updateSliderLevel={this.setDistanceSlider}/>
           <RangeSlider iconName='fire' updateSliderLevel={this.setSpicynessSlider}/>
+          <Button color="green" onClick={this.fetchYelpData} loading={this.state.isLoading} disabled={this.state.isLoading}>Update</Button><br></br>
+          <a href="https://github.com/afranco07/SnaqTime" target="_blank" rel="noopener noreferrer">Source Code</a>
         </Container>
       </div>
     );
