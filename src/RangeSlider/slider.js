@@ -25,7 +25,7 @@ class RangeSlider extends Component {
     switch(name) {
       case 'dollar':
         this.setState(() => {
-          return { maxSliderValue: 200, sliderValue: 100};
+          return { maxSliderValue: 4, sliderValue: 2};
         });
         break;
       case 'map pin':

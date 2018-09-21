@@ -9,7 +9,7 @@ class App extends Component {
     this.state = {
       restaurants: [],
       restaurantName: '',
-      moneySliderLevel: 0,
+      moneySliderLevel: '1, 2',
       distanceSliderLevel: 0,
       spicynessSliderLevel: 0,
       currentCategory: '',
@@ -41,7 +41,8 @@ class App extends Component {
       body: JSON.stringify({
         latitude: this.state.latitude,
         longitude: this.state.longitude,
-        radius: this.state.distanceSliderLevel
+        radius: this.state.distanceSliderLevel,
+        price: this.state.moneySliderLevel
       })
     };
     fetch(yelpURL, data)
@@ -89,8 +90,13 @@ class App extends Component {
   }
 
   setDollarAmount(newAmount) {
+    let priceArray = [];
+    for (let i = 1; i <= newAmount; i++) {
+      priceArray.push(i);
+    }
+    let priceString = priceArray.join(", ");
     this.setState(() => {
-      return { moneySliderLevel: newAmount};
+      return { moneySliderLevel: priceString };
     });
   }
 
