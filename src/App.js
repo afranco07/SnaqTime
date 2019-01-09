@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FoodCard from './FoodCard/card.js';
 import RangeSlider from './RangeSlider/slider.js';
 import { Container, Button } from 'semantic-ui-react';
+import packageJson from '../package.json';
 
 class App extends Component {
   constructor(props) {
@@ -125,7 +126,8 @@ class App extends Component {
           <RangeSlider iconName='map pin' updateSliderLevel={this.setDistanceSlider}/>
           <RangeSlider iconName='fire' updateSliderLevel={this.setSpicynessSlider}/>
           <Button color="green" onClick={this.fetchYelpData} loading={this.state.isLoading} disabled={this.state.isLoading}>Update</Button><br></br>
-          <a href="https://github.com/afranco07/SnaqTime" target="_blank" rel="noopener noreferrer">Source Code</a>
+          <a href="https://github.com/afranco07/SnaqTime" target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.65em" }}>Source Code</a>
+          <p style={{ fontSize: "0.5em" }}>{packageJson.version}</p>
         </Container>
       </div>
     );
