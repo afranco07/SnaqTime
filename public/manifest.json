@@ -70,6 +70,6 @@
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "blue",
-  "background_color": "green"
+  "theme_color": "#AF6155",
+  "background_color": "#AF6155"
 }
