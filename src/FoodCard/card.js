@@ -70,7 +70,7 @@ class FoodCard extends Component {
       >
         <div>
           <SwipedModal name={this.props.currentRestaurantName} open={this.state.modalSwipe} closeModal={this.handleSwipeModalClose} />
-          <Card style={{marginTop: '10px'}} centered raised={true}>
+          <Card style={{marginTop: '10px', background: "#DDB479"}} centered raised={true}>
             <Image src={this.props.imgLink} />
             <Card.Content>
               <Card.Header></Card.Header>
