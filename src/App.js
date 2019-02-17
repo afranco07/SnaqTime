@@ -122,9 +122,9 @@ class App extends Component {
       <div>
         <FoodCard imgLink={this.state.currentImage} changeImg={this.setCardImage} currentRestaurantName={this.state.restaurantName} />
         <Container textAlign='center'>
-          <RangeSlider iconName='dollar' updateSliderLevel={this.setDollarAmount}/>
-          <RangeSlider iconName='map pin' updateSliderLevel={this.setDistanceSlider}/>
-          <RangeSlider iconName='fire' updateSliderLevel={this.setSpicynessSlider}/>
+          <RangeSlider iconName='dollar' updateSliderLevel={this.setDollarAmount} maxSliderValue={4} defaultSliderValue={2}/>
+          <RangeSlider iconName='map pin' updateSliderLevel={this.setDistanceSlider} maxSliderValue={10000} defaultSliderValue={5000}/>
+          <RangeSlider iconName='fire' updateSliderLevel={this.setSpicynessSlider} maxSliderValue={2000} defaultSliderValue={1000}/>
           <Button color="green" onClick={this.fetchYelpData} loading={this.state.isLoading} disabled={this.state.isLoading}>Update</Button><br></br>
           <a href="https://github.com/afranco07/SnaqTime" target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.65em" }}>Source Code</a>
           <p style={{ fontSize: "0.5em" }}>{packageJson.version}</p>
