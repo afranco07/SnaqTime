@@ -36,7 +36,7 @@ class RangeSlider extends Component {
         <Icon size='large' name={this.props.iconName} />
         <input style={{marginTop:'15px'}} type='range' min='1' max={this.props.maxSliderValue} 
           defaultValue={this.props.defaultSliderValue} className='slider' step='1' onChange={this.updateSlider} />
-        { process.env.NODE_ENV ? this.state.sliderValue : null }
+        { process.env.NODE_ENV === 'development' ? this.state.sliderValue : null }
       </div>
     );
   }
