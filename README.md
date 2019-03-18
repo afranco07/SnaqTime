@@ -38,3 +38,25 @@ The `pin` allows you set the distance you are willing to travel.
 The `fire` icon allows you to set the spicyness.
 
 IT ALSO SUPPORTS GESTURES! Swipe left to act as the `X` and swipe right to act as the green `check mark`.
+
+## Developing/Running Locally
+
+* Run `npm install`
+
+* This application requires the use of your location so use must use `https` for this to work. Use the following commands to use `https` on development (https://facebook.github.io/create-react-app/docs/using-https-in-development#docsNav):
+
+    - Windows (cmd):
+    ```bash
+    set HTTPS=true&&npm start
+    ```
+
+    - Windows (powershell):
+    ```powershell
+    ($env:HTTPS = "true") -and (npm start)
+    ```
+
+    - Linux/MacOS (bash):
+    ```powershell
+    HTTPS=true npm start
+    ```
+    

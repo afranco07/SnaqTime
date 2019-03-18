@@ -127,7 +127,7 @@ class App extends Component {
           <RangeSlider iconName='fire' updateSliderLevel={this.setSpicynessSlider} maxSliderValue={2000} defaultSliderValue={1000}/>
           <Button color="green" onClick={this.fetchYelpData} loading={this.state.isLoading} disabled={this.state.isLoading}>Update</Button><br></br>
           <a href="https://github.com/afranco07/SnaqTime" target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.65em" }}>Source Code</a>
-          <p style={{ fontSize: "0.5em" }}>{packageJson.version}</p>
+          <p style={{ fontSize: "0.5em" }}>v{packageJson.version}</p>
         </Container>
       </div>
     );
